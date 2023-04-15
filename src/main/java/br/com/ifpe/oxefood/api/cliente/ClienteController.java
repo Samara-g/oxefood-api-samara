@@ -24,8 +24,7 @@ public class ClienteController extends GenericController {
     @PostMapping
     public ResponseEntity<Cliente> save(@RequestBody @Valid ClienteRequest request) {
 
-        Cliente clienteNovo = request.build();
-        Cliente cliente = clienteService.save(clienteNovo);
+        Cliente cliente = clienteService.save(request.build());
         return new ResponseEntity<Cliente>(cliente, HttpStatus.CREATED);
     }
 
