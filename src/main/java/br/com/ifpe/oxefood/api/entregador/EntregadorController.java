@@ -17,15 +17,14 @@ import br.com.ifpe.oxefood.util.entity.GenericController;
 @RestController
 @RequestMapping("/api/entregador")
 public class EntregadorController extends GenericController {
-    
-    @Autowired
-    private EntregadorService entregadorService;
 
-    @PostMapping
-    public ResponseEntity<Entregador> save(@RequestBody @Valid EntregadorRequest request) {
+   @Autowired
+   private EntregadorService entregadorService;
 
-        Entregador entregador = entregadorService.save(request.build());
-        return new ResponseEntity<Entregador>(entregador, HttpStatus.CREATED);
-    }
+   @PostMapping
+   public ResponseEntity<Entregador> save(@RequestBody @Valid EntregadorRequest request) {
 
+    Entregador entregador = entregadorService.save(request.build());
+       return new ResponseEntity<Entregador>(entregador, HttpStatus.CREATED);
+   }
 }
