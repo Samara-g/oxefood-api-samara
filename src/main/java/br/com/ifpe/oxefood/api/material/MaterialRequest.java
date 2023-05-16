@@ -25,6 +25,7 @@ public class MaterialRequest {
     private String localizacao;
  
     private Double peso;
+    
 
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataAquisicao;
