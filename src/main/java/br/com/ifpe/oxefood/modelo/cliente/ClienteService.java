@@ -1,8 +1,11 @@
 package br.com.ifpe.oxefood.modelo.cliente;
 import java.util.List;
+
 import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import br.com.ifpe.oxefood.util.entity.GenericService;
 @Service
 public class ClienteService extends GenericService {
@@ -42,7 +45,16 @@ public class ClienteService extends GenericService {
     }
 
     
+
+    @Transactional
+    public void delete(Long id) {
  
+        Cliente cliente = repository.findById(id).get();
+        cliente.setHabilitado(Boolean.FALSE);
+        super.preencherCamposAuditoria(cliente);
+ 
+        repository.save(cliente);
+    }
  
 
 }

@@ -27,7 +27,7 @@ public class ClienteRequest {
 
     private String foneFixo;
 
-    public Cliente build() {
+    public Cliente build() {  
 
         return Cliente.builder()
                 .nome(nome)
