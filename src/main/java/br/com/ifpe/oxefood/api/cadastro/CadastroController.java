@@ -1,4 +1,4 @@
-package br.com.ifpe.oxefood.api.produto;
+package br.com.ifpe.oxefood.api.cadastro;
 
 import java.util.List;
 
@@ -16,46 +16,46 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.ifpe.oxefood.modelo.produto.Produto;
-import br.com.ifpe.oxefood.modelo.produto.ProdutoService;
+import br.com.ifpe.oxefood.modelo.cadastro.Cadastro;
+import br.com.ifpe.oxefood.modelo.cadastro.CadastroService;
 import br.com.ifpe.oxefood.util.entity.GenericController;
 
 @RestController
-@RequestMapping("/api/produto")
-public class ProdutoController extends GenericController {
+@RequestMapping("/api/cadastro")
+public class CadastroController extends GenericController {
 
    @Autowired
-   private ProdutoService produtoService;
+   private CadastroService cadastroService;
 
    @PostMapping
-   public ResponseEntity<Produto> save(@RequestBody @Valid ProdutoRequest request) {
+   public ResponseEntity<Cadastro> save(@RequestBody @Valid CadastroRequest request) {
 
-    Produto produto = produtoService.save(request.build());
-       return new ResponseEntity<Produto>(produto, HttpStatus.CREATED);
+    Cadastro cadastro = cadastroService.save(request.build());
+       return new ResponseEntity<Cadastro>(cadastro, HttpStatus.CREATED);
    }
    @GetMapping
-   public List<Produto> listarTodos() {
+   public List<Cadastro> listarTodos() {
   
-       return produtoService.listarTodos();
+       return cadastroService.listarTodos();
    }
 
    @GetMapping("/{id}")
-   public Produto obterPorID(@PathVariable Long id) {
+   public Cadastro obterPorID(@PathVariable Long id) {
 
-       return produtoService.obterPorID(id);
+       return cadastroService.obterPorID(id);
    }
 
    @PutMapping("/{id}")
-   public ResponseEntity<Produto> update(@PathVariable("id") Long id, @RequestBody ProdutoRequest request) {
+   public ResponseEntity<Cadastro> update(@PathVariable("id") Long id, @RequestBody CadastroRequest request) {
 
-       produtoService.update(id, request.build());
+       cadastroService.update(id, request.build());
        return ResponseEntity.ok().build();
    }
    
    @DeleteMapping("/{id}")
    public ResponseEntity<Void> delete(@PathVariable Long id) {
 
-       produtoService.delete(id);
+       cadastroService.delete(id);
        return ResponseEntity.ok().build();
    }
 
