@@ -1,4 +1,4 @@
-package br.com.ifpe.oxefood.modelo.comprador;
+package br.com.ifpe.oxefood.modelo.cliente;
 
 import java.time.LocalDate;
 
@@ -16,36 +16,30 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "Comprador")
+@Table(name = "Cliente")
 @Where(clause = "habilitado = true")
 @Builder
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Comprador extends EntidadeAuditavel {
-    
-    private static final long serialVersionUID = 6744535953108071602L;
+public class Cliente extends EntidadeAuditavel  {
+
+    private static final long serialVersionUID = -9147515922627050356L;
 
     @Column
     private String nome;
 
     @Column
-    private String enderecoComercial;
+    private LocalDate dataNascimento;
 
     @Column
-    private String enderecoResidencial;
-    
-    @Column
-    private Double comissao;
+    private String cpf;
 
     @Column
-    private Boolean trabahoHomeOffice;
+    private String foneCelular;
 
     @Column
-    private int qtdComprasMediasMes;
-    
-    @Column
-    private LocalDate contratadoEm;
+    private String foneFixo;
 
 }

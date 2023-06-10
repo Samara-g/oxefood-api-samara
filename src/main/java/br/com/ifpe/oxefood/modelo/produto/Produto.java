@@ -1,12 +1,11 @@
-package br.com.ifpe.oxefood.modelo.comprador;
-
-import java.time.LocalDate;
+package br.com.ifpe.oxefood.modelo.produto;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Where;
+
 
 import br.com.ifpe.oxefood.util.entity.EntidadeAuditavel;
 import lombok.AllArgsConstructor;
@@ -16,36 +15,35 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "Comprador")
+@Table(name = "Produto")
 @Where(clause = "habilitado = true")
 @Builder
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Comprador extends EntidadeAuditavel {
-    
-    private static final long serialVersionUID = 6744535953108071602L;
+public class Produto extends EntidadeAuditavel  {
+
+    private static final long serialVersionUID = -9147515922627050356L;
 
     @Column
-    private String nome;
+    private String codigo;
 
     @Column
-    private String enderecoComercial;
+    private String titulo;
 
     @Column
-    private String enderecoResidencial;
-    
-    @Column
-    private Double comissao;
+    private String descricao;
 
     @Column
-    private Boolean trabahoHomeOffice;
+    private Double valorUnitario;
 
     @Column
-    private int qtdComprasMediasMes;
-    
+    private Integer tempoEntregaMinimo;
+
     @Column
-    private LocalDate contratadoEm;
+    private Integer tempoEntregaMaximo;
+
+
 
 }
